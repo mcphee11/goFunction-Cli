@@ -22,20 +22,20 @@ This will then install the CLI tool in your GOPATH. if this is setup in your sys
 goFunction-Cli --version
 ```
 
-And you should get an output like: `goFunction-Cli version version 0.3` NOTE: as I update the versions this number may be higher.
+And you should get an output like: `goFunction-Cli version version 0.4` NOTE: as I update the versions this number may be higher.
 
 ## Using the CLI
 
 To create a new project go to a location in your terminal eg: `~/Documents` and then type in the below command ensuring to change the `--flags` with your own information
 
 ```
-goFunction-Cli build --region=YOUR_REGION --clientId=YOUR_CLIENT_ID --secret=YOUR_SECRET --username=YOUR_USERNAME --password=YOUR_PASSWORD --name=YOUR_FUNCTION_NAME
+goFunction-Cli buildGenesys --region=YOUR_REGION --clientId=YOUR_CLIENT_ID --secret=YOUR_SECRET --username=YOUR_USERNAME --password=YOUR_PASSWORD --name=YOUR_FUNCTION_NAME
 ```
 
 I have put some more details on what each of these `flags` mean. This information can also be found by going
 
 ```
-goFunction-Cli build --help
+goFunction-Cli buildGenesys --help
 ```
 
 Here is the output about these flags
