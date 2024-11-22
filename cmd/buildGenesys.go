@@ -99,20 +99,26 @@ gcloud functions deploy %s --gen2 --runtime=go122 --region=australia-southeast1 
 	fmt.Println("Created directory cmd")
 
 	// create functions.go file
-	function, err := templates.ReadFile("function.go")
+	function, err := templates.ReadFile("_templates/function.go")
 	if err != nil {
-		fmt.Printf("Error reading embedded file function.go : %s", err.Error())
+		fmt.Println(err.Error())
+		_ = os.RemoveAll(flagName)
+		return
 	}
 	err = os.WriteFile(fmt.Sprintf("%s/function.go", flagName), []byte(function), 0777)
 	if err != nil {
-		fmt.Printf("Error creating function.go : %s", err.Error())
+		fmt.Println(err.Error())
+		_ = os.RemoveAll(flagName)
+		return
 	}
 	fmt.Println("function.go created")
 
 	// create genesys.go file
-	genesys, err := templates.ReadFile("genesys.go")
+	genesys, err := templates.ReadFile("_templates/genesys.go")
 	if err != nil {
-		fmt.Printf("Error reading embedded file genesys.go : %s", err.Error())
+		fmt.Println(err.Error())
+		_ = os.RemoveAll(flagName)
+		return
 	}
 	err = os.WriteFile(fmt.Sprintf("%s/genesys.go", flagName), []byte(genesys), 0777)
 	if err != nil {
@@ -121,7 +127,7 @@ gcloud functions deploy %s --gen2 --runtime=go122 --region=australia-southeast1 
 	fmt.Println("genesys.go created")
 
 	// create main.go file
-	main, err := templates.ReadFile("main.go")
+	main, err := templates.ReadFile("_templates/cmd/main.go")
 	if err != nil {
 		fmt.Printf("Error reading embedded file main.go : %s", err.Error())
 	}

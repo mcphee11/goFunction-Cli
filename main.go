@@ -24,6 +24,6 @@ package main
 import "github.com/mcphee11/goFunction-Cli/cmd"
 
 func main() {
-	cmd.SetVersionInfo("0.4")
+	cmd.SetVersionInfo("0.5")
 	cmd.Execute()
 }
